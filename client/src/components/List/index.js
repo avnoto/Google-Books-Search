@@ -36,7 +36,7 @@ export function ListItem(props) {
       <div className='container'>
         <div className='row'>
           <div className='col-xs-4 col-sm-2'>
-            <img className='img-thumbnail' src={props.image} />
+            <img className='img-thumbnail' alt='book cover' src={props.image} />
           </div>
           <div className='col-xs-8 col-sm-10'>
             <h3>{props.title}</h3>
@@ -48,14 +48,14 @@ export function ListItem(props) {
               target='_blank'
               href={props.link}
               variant='outlined'
-              color='primary'
+              color='link'
             >
               View
             </Button>
             {!props.id ? (
               <Button
                 variant='outlined'
-                color='success'
+                color='primary'
                 onClick={handleSaveBtn}
               >
                 Save
@@ -63,7 +63,7 @@ export function ListItem(props) {
             ) : (
               <Button
                 variant='outlined'
-                color='danger'
+                color='secondary'
                 onClick={handleDeleteBtn}
               >
                 Delete
