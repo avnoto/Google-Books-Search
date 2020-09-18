@@ -4,21 +4,20 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
+require('./database');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .catch((error) => handleError(error));
+// mongoose
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+// });
 
-mongoose.connection.on('connected', function () {
-  console.log('Connected to mongodb');
-});
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
