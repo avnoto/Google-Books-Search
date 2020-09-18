@@ -19,6 +19,11 @@ export function ListItem(props) {
     })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    alert(
+      'Saved ' +
+        props.title +
+        '. Click on the Saved tab to view your book list.'
+    );
   };
 
   const handleDeleteBtn = (e) => {
@@ -48,7 +53,7 @@ export function ListItem(props) {
               target='_blank'
               href={props.link}
               variant='outlined'
-              color='link'
+              color='primary'
             >
               View
             </Button>
